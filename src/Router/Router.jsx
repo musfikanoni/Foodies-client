@@ -5,6 +5,7 @@ import {
 import Home from "../Pages/Home";
 import LayOut from "../Layout/LayOut";
 import AddFood from "../Pages/AddFood";
+import Foods from "../Pages/Foods";
  
 export const router = createBrowserRouter([
     {
@@ -19,7 +20,13 @@ export const router = createBrowserRouter([
             {
                 path: "addfood",
                 element: <AddFood></AddFood>
-            }
+            },
+            {
+                path: "foods",
+                element: <Foods></Foods>,
+                loader: () => fetch('http://localhost:5000/foods'),
+            },
+            
         ]
     }
   ])
