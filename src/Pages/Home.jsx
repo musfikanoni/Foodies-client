@@ -1,10 +1,13 @@
 import React from 'react';
-import Foods from './Foods';
+// import AvailableFoods from './AvailableFoods';
+import Banner from './Banner';
+import { Outlet } from 'react-router-dom';
 
 const Home = () => {
     return (
         <div>
-            {/* <Foods></Foods> */}
+            <Banner></Banner>
+            <Outlet></Outlet>
         </div>
     );
 };

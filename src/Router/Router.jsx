@@ -6,6 +6,8 @@ import Home from "../Pages/Home";
 import LayOut from "../Layout/LayOut";
 import AddFood from "../Pages/AddFood";
 import Foods from "../Pages/Foods";
+import ViewFoodDetails from "../Pages/ViewFoodDetails";
+import AvailableFoods from "../Pages/AvailableFoods";
  
 export const router = createBrowserRouter([
     {
@@ -15,7 +17,14 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home></Home>
+                element: <Home></Home>,
+                children: [
+                    {
+                      path: "/",
+                      element: <AvailableFoods></AvailableFoods>,
+                      loader: () => fetch('http://localhost:5000/'),
+                    }
+                  ]
             },
             {
                 path: "addfood",
@@ -26,7 +35,11 @@ export const router = createBrowserRouter([
                 element: <Foods></Foods>,
                 loader: () => fetch('http://localhost:5000/foods'),
             },
-            
+            {
+                path: 'foods/:id',
+                element: <ViewFoodDetails></ViewFoodDetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`),
+            },
         ]
     }
   ])

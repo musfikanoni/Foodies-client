@@ -1,6 +1,4 @@
 
-// import { GiMoneyStack } from 'react-icons/gi';
-// import { TbCategory } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
 
 const FoodCard = ({food}) => {
@@ -21,7 +19,7 @@ const FoodCard = ({food}) => {
                         <p className='font-bold text-md text-slate-700'>{category}</p>
                     </div>            
                     <div className="card-actions justify-center pt-3">
-                        <Link to={`/services/${_id}`}>
+                        <Link to={`/foods/${_id}`}>
                         <button
                             className="py-2 px-7 font-semibold
                              rounded-full bg-gradient-to-r from-[#ce8333]  to-[#ff823f] border-none text-lg text-white">See Details</button>
